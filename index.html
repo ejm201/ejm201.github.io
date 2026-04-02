@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,26 +14,21 @@
 
     <style>
         :root {
-            --bg-dark: #0f4c5c;
-            --text-dark: #ffffff;
-            --bg-light: #f7f7f7;
-            --text-light: #222222;
-        }
-
-        [data-theme="dark"] {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
-        }
-
-        [data-theme="light"] {
-            background-color: var(--bg-light);
-            color: var(--text-light);
+            --dracula-bg: #282a36;
+            --dracula-bg-alt: #1e1f29;
+            --dracula-fg: #f8f8f2;
+            --dracula-purple: #bd93f9;
+            --dracula-cyan: #8be9fd;
+            --dracula-green: #50fa7b;
+            --dracula-pink: #ff79c6;
         }
 
         body {
             font-family: "Roboto", sans-serif;
+            background: linear-gradient(160deg, var(--dracula-bg), var(--dracula-bg-alt));
+            color: var(--dracula-fg);
             padding-top: 80px;
-            transition: background-color 0.3s, color 0.3s;
+            letter-spacing: 0.2px;
         }
 
         .avatar {
@@ -42,94 +37,124 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 25px;
-            border: 3px solid rgba(255,255,255,0.4);
+            border: 3px solid var(--dracula-purple);
+            box-shadow: 0 0 20px rgba(189,147,249,0.4);
+        }
+
+        h1 {
+            font-weight: 700;
+            color: var(--dracula-green);
+            text-shadow: 0 0 10px rgba(80,250,123,0.4);
+        }
+
+        h2 {
+            font-weight: 300;
+            opacity: 0.9;
+            color: var(--dracula-cyan);
         }
 
         .section-title {
             font-weight: 700;
-            margin-top: 60px;
+            margin-top: 70px;
             margin-bottom: 20px;
+            color: var(--dracula-purple);
+            text-shadow: 0 0 8px rgba(189,147,249,0.3);
+        }
+
+        .card-dracula {
+            background: rgba(40,42,54,0.6);
+            border: 1px solid rgba(189,147,249,0.2);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 0 20px rgba(0,0,0,0.4);
         }
 
         .fadein {
             opacity: 0;
-            animation: fadein 2s forwards;
+            animation: fadein 1.8s forwards;
         }
 
         @keyframes fadein {
             to { opacity: 1; }
         }
 
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: 2px solid currentColor;
-            border-radius: 50px;
-            padding: 6px 14px;
-            cursor: pointer;
-            font-size: 0.9em;
+        a {
+            color: var(--dracula-cyan);
+            text-decoration: none;
         }
 
-        a {
-            color: inherit;
+        a:hover {
             text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <!-- DARK MODE TOGGLE -->
-    <button class="toggle-btn" onclick="toggleTheme()">Toggle</button>
-
     <div class="container fadein text-center">
         <img class="avatar" src="https://ca.slack-edge.com/T03T81RBJ-U02886MTAET-c154da9a1171-512" alt="Profile">
 
         <h1 class="mb-1">Edwin J</h1>
-        <h2 class="mb-4">Operator • Technologist • Cyber/Infosec</h2>
+        <h2 class="mb-4">Operator • Technologist • Cyber/InfoSec</h2>
 
-        <p class="lead mx-auto" style="max-width: 700px;">
+        <p class="lead mx-auto" style="max-width: 720px;">
             I build, operate, and scale systems.  
-            My background spans technical operations, cyber/infosec, API-driven SaaS, and high‑reliability infrastructure.  
+            My background spans technical operations, Cyber/InfoSec, API‑driven SaaS, and high‑reliability infrastructure.  
             I work at the intersection of engineering, strategy, and execution.
         </p>
 
         <!-- ABOUT -->
         <h3 class="section-title">About</h3>
-        <p class="mx-auto" style="max-width: 700px;">
-            I’ve spent my career solving operational and technical problems across fast-moving environments.  
-            My work includes platform reliability, API architecture, data intelligence, and security-focused systems design.  
-            I’m driven by clarity, precision, and building things that actually work.
-        </p>
+        <div class="card-dracula mx-auto" style="max-width: 720px;">
+            <p>
+                I’ve spent my career solving operational and technical problems across fast‑moving environments.  
+                My work includes platform reliability, API architecture, data intelligence, and security‑focused systems design.  
+                I’m driven by clarity, precision, and building things that actually work.
+            </p>
+        </div>
 
-        <!-- SKILLS -->
+        <!-- AI SECTION -->
+        <h3 class="section-title">AI & Augmented Execution</h3>
+        <div class="card-dracula mx-auto" style="max-width: 720px; text-align: left;">
+            <p>
+                I use AI as a force multiplier across my work — not as a shortcut, but as an extension of my operational and technical judgment.
+            </p>
+            <p>
+                Over time, I’ve built a workflow where AI accelerates:
+            </p>
+            <ul>
+                <li>• Geolocation intelligence and data validation</li>
+                <li>• API reliability analysis and incident triage</li>
+                <li>• Cyber/InfoSec pattern recognition and threat reasoning</li>
+                <li>• Technical diligence and system architecture reviews</li>
+                <li>• Operational planning and decision support</li>
+            </ul>
+            <p>
+                I treat AI the same way I treat any high‑leverage tool:  
+                <span style="color: var(--dracula-pink); font-weight: 700;">augment the operator — don’t replace them.</span>
+            </p>
+        </div>
+
+        <!-- FOCUS AREAS -->
         <h3 class="section-title">Focus Areas</h3>
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <p>• Cyber / Infosec Operations</p>
+            <div class="col-md-4 card-dracula">
+                <p>• Cyber/InfoSec Operations</p>
                 <p>• API Architecture & Reliability</p>
                 <p>• Technical Strategy & Execution</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 card-dracula">
                 <p>• Data Intelligence & Geolocation</p>
                 <p>• Systems Optimization</p>
-                <p>• High‑leverage Technical Ops</p>
+                <p>• High‑Leverage Technical Ops</p>
             </div>
         </div>
 
-        <!-- BLOG SECTION -->
+        <!-- BLOG -->
         <h3 class="section-title">Writing</h3>
-        <p class="mx-auto" style="max-width: 700px;">
-            Thoughts, notes, and technical breakdowns.
-        </p>
-
-        <div class="mx-auto" style="max-width: 700px; text-align: left;">
-            <ul>
-                <li><a href="/blog/first-post.html">Why Operators Win (coming soon)</a></li>
-                <li><a href="/blog/infra-notes.html">Infrastructure Notes (coming soon)</a></li>
-                <li><a href="/blog/cyber-lessons.html">Cyber/Infosec Lessons (coming soon)</a></li>
-            </ul>
+        <div class="card-dracula mx-auto" style="max-width: 720px;">
+            <p>Coming soon.</p>
         </div>
 
         <!-- CONTACT -->
@@ -141,13 +166,5 @@
 
         <p class="mt-5" style="opacity: 0.6;">© edwinj.dev</p>
     </div>
-
-    <script>
-        function toggleTheme() {
-            const html = document.documentElement;
-            const current = html.getAttribute("data-theme");
-            html.setAttribute("data-theme", current === "dark" ? "light" : "dark");
-        }
-    </script>
 </body>
 </html>
