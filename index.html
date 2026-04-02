@@ -18,6 +18,7 @@
             --dracula-bg-alt: #1e1f29;
             --dracula-fg: #f8f8f2;
             --dracula-purple: #bd93f9;
+            --dracula-purple-bright: #d6b6ff;
             --dracula-cyan: #8be9fd;
             --dracula-green: #50fa7b;
             --dracula-pink: #ff79c6;
@@ -31,26 +32,68 @@
             letter-spacing: 0.2px;
         }
 
-        .avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
+        /* Avatar — centered, square, inner border, glow */
+        .avatar-dracula {
+            width: 180px;
+            height: 180px;
             object-fit: cover;
-            margin-bottom: 25px;
+            border-radius: 12px;
             border: 3px solid var(--dracula-purple);
-            box-shadow: 0 0 20px rgba(189,147,249,0.4);
+            box-shadow:
+                0 0 12px rgba(189,147,249,0.6),
+                0 0 24px rgba(139,233,253,0.3);
+            margin: 0 auto 30px auto;
+            display: block;
+            position: relative;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
 
-        h1 {
+        /* Thin inner border for depth */
+        .avatar-dracula::after {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            pointer-events: none;
+        }
+
+        .avatar-dracula:hover {
+            box-shadow:
+                0 0 18px rgba(189,147,249,0.9),
+                0 0 32px rgba(139,233,253,0.5);
+            transform: translateY(-3px);
+        }
+
+        /* Fade-up animation for name + tagline */
+        .fadeup {
+            opacity: 0;
+            transform: translateY(12px);
+            animation: fadeup 1.2s forwards;
+        }
+
+        @keyframes fadeup {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Name + tagline — glowing purple */
+        .header-name {
+            color: var(--dracula-purple-bright);
             font-weight: 700;
-            color: var(--dracula-green);
-            text-shadow: 0 0 10px rgba(80,250,123,0.4);
+            text-shadow: 0 0 12px rgba(214,182,255,0.55);
+            letter-spacing: 0.6px;
+            margin-bottom: 6px;
         }
 
-        h2 {
-            font-weight: 300;
-            opacity: 0.9;
-            color: var(--dracula-cyan);
+        .header-tagline {
+            color: var(--dracula-purple);
+            font-weight: 400;
+            text-shadow: 0 0 8px rgba(189,147,249,0.45);
+            letter-spacing: 0.4px;
+            margin-bottom: 28px;
         }
 
         .section-title {
@@ -88,47 +131,26 @@
         a:hover {
             text-decoration: underline;
         }
-
-        .avatar-dracula {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    border: 3px solid #bd93f9;
-    box-shadow:
-        0 0 12px rgba(189,147,249,0.6),
-        0 0 24px rgba(139,233,253,0.3);
-    margin-bottom: 25px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.avatar-dracula:hover {
-    box-shadow:
-        0 0 18px rgba(189,147,249,0.9),
-        0 0 32px rgba(139,233,253,0.5);
-    transform: translateY(-3px);
-}
-
     </style>
 </head>
 
 <body>
     <div class="container fadein text-center">
+
         <img class="avatar-dracula" src="assets/edwinprofile.png" alt="Edwin J Portrait">
 
+        <h1 class="header-name fadeup">Edwin J Melendez</h1>
+        <h2 class="header-tagline fadeup" style="animation-delay: 0.2s;">Operator • Technologist • Cyber/InfoSec</h2>
 
-        <h1 class="mb-1">Edwin J Melendez</h1>
-        <h2 class="mb-4">Operator • Technologist • Cyber/InfoSec</h2>
-
-        <p class="lead mx-auto" style="max-width: 720px;">
+        <p class="lead mx-auto fadeup" style="max-width: 720px; animation-delay: 0.4s;">
             I build, operate, and scale systems.  
             My background spans technical operations, Cyber/InfoSec, API‑driven SaaS, and high‑reliability infrastructure.  
             I work at the intersection of engineering, strategy, and execution.
         </p>
 
         <!-- ABOUT -->
-        <h3 class="section-title">About</h3>
-        <div class="card-dracula mx-auto" style="max-width: 720px;">
+        <h3 class="section-title fadeup" style="animation-delay: 0.6s;">About</h3>
+        <div class="card-dracula mx-auto fadeup" style="max-width: 720px; animation-delay: 0.7s;">
             <p>
                 I’ve spent my career solving operational and technical problems across fast‑moving environments.  
                 My work includes platform reliability, API architecture, data intelligence, and security‑focused systems design.  
@@ -137,8 +159,8 @@
         </div>
 
         <!-- AI SECTION -->
-        <h3 class="section-title">AI & Augmented Execution</h3>
-        <div class="card-dracula mx-auto" style="max-width: 720px; text-align: left;">
+        <h3 class="section-title fadeup" style="animation-delay: 0.9s;">AI & Augmented Execution</h3>
+        <div class="card-dracula mx-auto fadeup" style="max-width: 720px; text-align: left; animation-delay: 1.0s;">
             <p>
                 I use AI as a force multiplier across my work — not as a shortcut, but as an extension of my operational and technical judgment.
             </p>
@@ -159,8 +181,8 @@
         </div>
 
         <!-- FOCUS AREAS -->
-        <h3 class="section-title">Focus Areas</h3>
-        <div class="row justify-content-center">
+        <h3 class="section-title fadeup" style="animation-delay: 1.2s;">Focus Areas</h3>
+        <div class="row justify-content-center fadeup" style="animation-delay: 1.3s;">
             <div class="col-md-4 card-dracula">
                 <p>• Cyber/InfoSec Operations</p>
                 <p>• API Architecture & Reliability</p>
@@ -174,14 +196,14 @@
         </div>
 
         <!-- BLOG -->
-        <h3 class="section-title">Writing</h3>
-        <div class="card-dracula mx-auto" style="max-width: 720px;">
+        <h3 class="section-title fadeup" style="animation-delay: 1.5s;">Writing</h3>
+        <div class="card-dracula mx-auto fadeup" style="max-width: 720px; animation-delay: 1.6s;">
             <p>Coming soon.</p>
         </div>
 
         <!-- CONTACT -->
-        <h3 class="section-title">Contact</h3>
-        <p class="mx-auto" style="max-width: 700px;">
+        <h3 class="section-title fadeup" style="animation-delay: 1.8s;">Contact</h3>
+        <p class="mx-auto fadeup" style="max-width: 700px; animation-delay: 1.9s;">
             <a href="mailto:edwin@edwinj.dev">edwin@edwinj.dev</a>
         </p>
 
