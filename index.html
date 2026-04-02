@@ -32,7 +32,7 @@
             letter-spacing: 0.2px;
         }
 
-        /* Avatar — centered, square, inner border, glow */
+        /* Avatar — centered, square, inner border, glow, optical centering fix */
         .avatar-dracula {
             width: 180px;
             height: 180px;
@@ -46,6 +46,9 @@
             display: block;
             position: relative;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+            /* THE FIX — optical centering */
+            transform: translateX(-12px);
         }
 
         /* Thin inner border for depth */
@@ -62,14 +65,8 @@
             box-shadow:
                 0 0 18px rgba(189,147,249,0.9),
                 0 0 32px rgba(139,233,253,0.5);
-            transform: translateY(-3px);
+            transform: translate(-12px, -3px); /* keep centering + hover lift */
         }
-
-        /*fix centering of photo */
-        .avatar-dracula {
-            transform: translateX(-6px);
-        }
-
 
         /* Fade-up animation for name + tagline */
         .fadeup {
