@@ -88,12 +88,34 @@
         a:hover {
             text-decoration: underline;
         }
+
+        .avatar-dracula {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 3px solid #bd93f9;
+    box-shadow:
+        0 0 12px rgba(189,147,249,0.6),
+        0 0 24px rgba(139,233,253,0.3);
+    margin-bottom: 25px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.avatar-dracula:hover {
+    box-shadow:
+        0 0 18px rgba(189,147,249,0.9),
+        0 0 32px rgba(139,233,253,0.5);
+    transform: translateY(-3px);
+}
+
     </style>
 </head>
 
 <body>
     <div class="container fadein text-center">
-        <img class="avatar" src="https://ca.slack-edge.com/T03T81RBJ-U02886MTAET-c154da9a1171-512" alt="Profile">
+        <img class="avatar-dracula" src="assets/edwinprofile.png" alt="Edwin J Portrait">
+
 
         <h1 class="mb-1">Edwin J Melendez</h1>
         <h2 class="mb-4">Operator • Technologist • Cyber/InfoSec</h2>
